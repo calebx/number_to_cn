@@ -1,0 +1,1 @@
+require 'number_to_cn.rb'

@@ -1,12 +1,12 @@
 #encoding:utf-8
 module NumberToCn 
-
   CN_T_TRANS = [ "", "壹", "贰", "叁", "肆", "伍", "陆", "柒", "捌", "玖", "拾" ]
+  CN_T_TRANS_WITH_ZERO = [ "零", "壹", "贰", "叁", "肆", "伍", "陆", "柒", "捌", "玖", "拾" ]
   CN_T_POSITION = [ "", "拾", "佰", "仟" ]
-  CN_T_BIG = [ "", "萬", "亿"]
+  CN_T_BIG = [ "", "萬", "亿", "萬"]
 
   def to_cn_words
-    if self.class == "Fixnum"
+    if self.class == Fixnum
       return "零" if self == 0
       num_arr = self.to_s.split("").reverse
       rst_arr = []
@@ -40,7 +40,20 @@ module NumberToCn
       end
 
       rst_arr.reverse.join
+    elsif self.class == Float
+      before_point = self.to_s.split(".")[0]
+      after_point = self.to_s.split(".")[1]
+      "#{before_point.to_i.to_cn_words}点#{after_point.to_i.to_cn_clearly}"
     end
   end
   
+  def to_cn_clearly
+    digits_arr = self.to_s.split('')
+    rst = ""
+    digits_arr.map do |d|
+      rst << CN_T_TRANS_WITH_ZERO[d.to_i]
+    end
+    rst
+  end
+
 end

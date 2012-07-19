@@ -23,8 +23,11 @@ so simple to use:
 require 'number_to_cn'
 
 123.to_cn_words #=>
+
 123.to_cn_clearly #=>
+
 0.1.to_cn_words #=>
+
 0.to_cn_words #=>
 
 ## Contributing

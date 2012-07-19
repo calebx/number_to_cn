@@ -1,5 +1,5 @@
 require 'number_to_cn/methods.rb'
 
-class Integer
+class Float
   include NumberToCn
 end

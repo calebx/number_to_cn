@@ -22,13 +22,13 @@ so simple to use:
 
 require 'number_to_cn'
 
-123.to_cn_words #=>
+123.to_cn_words   #=> 壹佰贰拾叁
 
-123.to_cn_clearly #=>
+123.to_cn_clearly #=> 壹贰叁
 
-0.1.to_cn_words #=>
+0.1.to_cn_words   #=> 零点壹
 
-0.to_cn_words #=>
+0.to_cn_words     #=> 零
 
 ## Contributing
 
